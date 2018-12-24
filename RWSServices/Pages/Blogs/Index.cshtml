@@ -1,0 +1,77 @@
+﻿@page
+@model RWSServices.Pages.Blogs.IndexModel
+
+@{
+    ViewData["Title"] = "Blogs Covering IT Technical Topics";
+}
+
+@if (User.IsInRole("Admin"))
+{
+    <div class="container">
+        <div class="row">
+            <div class="alert alert-primary col spacer" role="alert">
+                <a class="btn btn-primary" asp-page="Create">Create New</a>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="container padder">
+    <div class="row">
+
+        @foreach (var item in Model.Blog)
+        {
+            <div class="col-md-4">
+                <div class="blogItem">
+                    <a asp-page="./Details" asp-route-id="@item.BlogID" asp-route-url="@item.URL">
+                        <img src="~/images/blog/@Html.DisplayFor(modelItem => item.BlogImage)" class="img-fluid" alt="@Html.DisplayFor(modelItem => item.BlogTitle)" />
+                    </a>
+
+                    <div class="container">
+                        <a asp-page="./Details" asp-route-id="@item.BlogID">
+                            <h5>@Html.DisplayFor(modelItem => item.BlogTitle)</h5>
+                        </a>
+
+                        <p class="font-weight-light">
+                            By @Html.DisplayFor(modelItem => item.ApplicationUserCreatedBy.Forename) @Html.DisplayFor(modelItem => item.ApplicationUserCreatedBy.Surname) on @Html.Raw(item.CreatedDate.ToString("dd MMM yyyy"))
+                        </p>
+
+                        <div class="blogSummary">
+                            @IndexModel.StrippedHTMLSummaryText(Html.Raw(item.BlogContent).ToString())
+                        </div>
+
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <div class="alert alert-primary col text-right" role="alert">
+                                <a class="btn btn-primary btn-sm" asp-page="./Edit" asp-route-id="@item.BlogID">Edit</a>
+                                <a class="btn btn-danger btn-sm" asp-page="./Delete" asp-route-id="@item.BlogID">Delete</a>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="alert alert-primary text-right" role="alert">
+                Get notifications on server status and blog updates
+                <label class="switch GetNotifications">
+                    <input type="checkbox" class="GetNotificationsButton">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (User.IsInRole("Admin"))
+{
+    <div class="container">
+        <div class="row">
+            <div class="alert alert-primary col spacer" role="alert">
+                <a class="btn btn-primary" asp-page="Create">Create New</a>
+            </div>
+        </div>
+    </div>
+}

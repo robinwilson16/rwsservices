@@ -1,0 +1,38 @@
+﻿@model RWSServices.Models.FileUpload.FilesViewModel
+
+@foreach (var item in Model.Files)
+{
+    if (@item.IsDirectory)
+    {
+        <div class="col-md-3">
+            <a asp-action="Files"
+               asp-route-subfolder="@item.Subfolder">
+                <h1>📁</h1>
+                @item.Name
+            </a>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-light col-md-4 text-center">
+            <a class="btn btn-outline-secondary" asp-action="Download" asp-route-filename="@item.Name" asp-route-subfolder="@item.Subfolder">
+                <img src="/Uploads/@item.Subfolder/@item.Name" alt="@item.Name" class="img-fluid img-thumbnail" />
+            </a>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <button type="button" class="btn btn-primary btn-sm">
+                            Use
+                        </button>
+                        <a class="btn btn-secondary btn-sm" asp-action="Download" asp-route-filename="@item.Name" asp-route-subfolder="@item.Subfolder">
+                            Save
+                        </a>
+                        <button type="button" class="btn btn-danger btn-sm">
+                            Delete
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}

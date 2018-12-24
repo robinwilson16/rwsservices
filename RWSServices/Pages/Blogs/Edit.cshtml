@@ -1,0 +1,227 @@
+﻿@page
+@model RWSServices.Pages.Blogs.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="container padder">
+    <div class="row">
+        Created By @Html.DisplayFor(modelItem => Model.Blog.CreatedBy) on @Html.DisplayFor(modelItem => Model.Blog.CreatedDate)
+        @if (@Model.Blog.UpdatedBy == "")
+        {
+            @:<br />
+            @:Updated By @Html.DisplayFor(modelItem => Model.Blog.UpdatedBy) on @Html.DisplayFor(modelItem => Model.Blog.UpdatedDate)
+        }
+    </div>
+    <div class="row">
+        <div class="col">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Blog.BlogID" />
+                <div class="form-group row">
+                    <label asp-for="Blog.BlogTitle" class="control-label col-sm-2"></label>
+                    <input asp-for="Blog.BlogTitle" class="form-control col-sm-10" />
+                    <span asp-validation-for="Blog.BlogTitle" class="text-danger"></span>
+                </div>
+                <div class="form-group row">
+                    <label asp-for="Blog.BlogImage" class="control-label col-sm-2"></label>
+                    <input asp-for="Blog.BlogImage" class="form-control col-sm-10" />
+                    <span asp-validation-for="Blog.BlogImage" class="text-danger"></span>
+                </div>
+                <div class="form-group row">
+                    <label asp-for="Blog.BlogContent" class="control-label col-sm-2"></label>
+                    <div class="col-sm-10">
+                        <div class="row">
+                            <div class="alert alert-primary col" role="alert">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md">
+                                            <div class="alert alert-primary Emojis" role="alert">
+                                                🖼️ Insert image:
+                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ResourceGalleryModal">
+                                                    💾 Add/Upload Image...
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="col-md siteUrls">
+                                            <div class="alert alert-primary" role="alert">
+                                                🌎 Insert link:
+                                                <a class="btn btn-outline-secondary btn-sm" href="http://www.rwsservices.net">Home</a>
+                                                <a class="btn btn-outline-secondary btn-sm" href="http://www.rwsservices.net#Hosting">Hosting</a>
+                                                <a class="btn btn-outline-secondary btn-sm" href="http://www.rwsservices.net#Reliability">Reliability</a>
+                                                <a class="btn btn-outline-secondary btn-sm" href="http://www.rwsservices.net#Specialist">Specialist</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md">
+                                            <div class="alert alert-primary Emojis" role="alert">
+                                                🦄 Insert Emoji:
+                                                <button type="button" class="btn btn-outline-secondary btn-sm Emoji">😀</button>
+                                                <button type="button" class="btn btn-outline-secondary btn-sm Emoji">😁</button>
+                                                <button type="button" class="btn btn-outline-secondary btn-sm Emoji">😎</button>
+                                                <button type="button" class="btn btn-outline-secondary btn-sm Emoji">😍</button>
+                                                <button type="button" class="btn btn-outline-secondary btn-sm Emoji">💩</button>
+                                                <button type="button" class="btn btn-outline-secondary btn-sm Emoji">👍</button>
+                                                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#EmojiModal">
+                                                    More...
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <textarea asp-for="Blog.BlogContent" class="form-control editor"></textarea>
+                    </div>
+                    <span asp-validation-for="Blog.BlogContent" class="text-danger"></span>
+                </div>
+                <input asp-for="Blog.CreatedBy" class="form-control col-sm-10" hidden />
+                <input asp-for="Blog.CreatedDate" class="form-control col-sm-10" hidden />
+                <div class="form-group row">
+                    <div class="alert alert-primary col text-right" role="alert">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </div>
+                </div>
+            </form>
+            <input id="UploadFolder" type="hidden" value="Blogs/@Html.DisplayFor(modelItem => Model.Blog.BlogID)" />
+            <div class="modal fade" id="ResourceGalleryModal" tabindex="-1" role="dialog" aria-labelledby="ResourceGalleryModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="ResourceGalleryModal">Resource Gallery</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <nav class="nav nav-tabs" id="ResourceGalleryTab">
+                                            <a class="nav-link active" id="ItemResources-tab" data-toggle="tab" href="#ItemResources-content" role="tab"
+                                               aria-controls="ItemResources-content" aria-selected="true">Blog Resources</a>
+                                            <a class="nav-link" id="GlobalResources-tab" data-toggle="tab" href="#GlobalResources-content" role="tab"
+                                               aria-controls="GlobalResources-content" aria-selected="false">Global Assets</a>
+                                        </nav>
+                                    </div>
+                                </div>
+                                <div class="tab-content" id="ResourceGalleryTabContent">
+                                    <div class="tab-pane fade show active" id="ItemResources-content" role="tabpanel" aria-labelledby="ItemResources-tab">
+                                        <div class="container">
+                                            <div id="ItemResources" class="row">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="GlobalResources-content" role="tabpanel" aria-labelledby="GlobalResources-tab">
+                                        <div class="container">
+                                            <div id="GlobalResources" class="row">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#FileUploadModal">Upload new resources...</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="FileUploadModal" tabindex="-1" role="dialog" aria-labelledby="FileUploadModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <form asp-controller="FileUpload" asp-action="UploadFiles" method="post" enctype="multipart/form-data" id="AddSiteResourcesForm">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="FileUploadModalLabel">Add New Resources</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container">
+                                    <div class="col">
+                                        <div class="row">
+                                            <div class="form-group row">
+                                                <input id="FilesToUpload" type="file" name="files" class="form-control col" multiple />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Upload File(s)</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="UploadProgressModal" tabindex="-1" role="dialog" aria-labelledby="UploadProgressModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="UploadProgressModalLabel">Add New Resource</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="progress col">
+                                            <div id="FileUploadProgress" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">0%</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="UploadProgressModalCloseButton" class="modal-footer">
+                            <button type="submit" class="btn btn-primary" data-dismiss="modal">OK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="EmojiModal" tabindex="-1" role="dialog" aria-labelledby="EmojiModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="EmojiModalLabel">Emojis</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container">
+                                <div id="Emojis" class="col Emojis">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary" data-dismiss="modal">OK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div>
+            <a asp-page="./Index">Back to List</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js" asp-append-version="true"></script>
+    <environment include="Development">
+        <script src="~/js/blog.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/js/blog.min.js" asp-append-version="true"></script>
+    </environment>
+}

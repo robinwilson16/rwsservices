@@ -1,0 +1,434 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div>
+    <div id="HomeCarousel" class="carousel slide lazy" data-ride="carousel" data-interval="6000">
+        <ol class="carousel-indicators">
+            <li data-target="#HomeCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#HomeCarousel" data-slide-to="1"></li>
+            <li data-target="#HomeCarousel" data-slide-to="2"></li>
+            <li data-target="#HomeCarousel" data-slide-to="3"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+                <img src="~/images/banner1.jpg" alt="Digital Code Background" class="img-fluid" />
+                <div class="carousel-caption d-md-block" role="option">
+                    <h2>
+                        RWS Services provide cloud web hosting and responsive web design services for competitive prices using the latest technologies
+                    </h2>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img data-src="/images/banner2.jpg" alt="Background showing a laptop, tablet and smartphone" class="img-fluid" />
+                <div class="carousel-caption d-md-block" role="option">
+                    <h2>
+                        RWS responsive web sites are designed to look good on any device including desktops, laptops, tablets and smartphones
+                    </h2>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img data-src="/images/banner3.jpg" alt="Background showing a rack of servers" class="img-fluid" />
+                <div class="carousel-caption d-md-block" role="option">
+                    <h2>
+                        With uptime of over 99.9% you can rely on RWS Services to ensure your website is always available
+                    </h2>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img data-src="/images/banner4.jpg" alt="Background showing a large network switch" class="img-fluid" />
+                <div class="carousel-caption d-md-block" role="option">
+                    <h2>
+                        RWS Services can also provide unmanaged VPS servers and help with sourcing and and configuring servers, networks and domains
+                    </h2>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#HomeCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#HomeCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+
+<div class="container-fluid skyblue">
+    <div class="container sectionStripFirst scrollAnchor">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="servicesBox">
+                    <a href="#CloudHosting">
+                        <h2>Cloud Hosting</h2>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-2 service">
+                                    <img src="~/images/CloudHosting.png" alt="Image of a server" />
+                                </div>
+                                <div class="col-10">
+                                    <ul>
+                                        <li>Running on Ubuntu 18.04</li>
+                                        <li>Fast fibre optic network</li>
+                                        <li>Plans to suit any business</li>
+                                        <li>Now with support for Microsoft .NET Core</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="servicesBox">
+                    <a href="#WebDesign">
+                        <h2>Web Design</h2>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-2 service">
+                                    <img src="~/images/WebDesign.png" alt="Image of a responsive website" />
+                                </div>
+                                <div class="col-10">
+                                    <ul>
+                                        <li>Designed to fit and look good on any device</li>
+                                        <li>Easily update your content</li>
+                                        <li>Uses the latest features to help speedy loading and improve search engine ranking</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="servicesBox">
+                    <a href="#Reliability">
+                        <h2>Reliability</h2>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-2 service">
+                                    <img src="~/images/Uptime.png" alt="Over 99.9% Uptime" />
+                                </div>
+                                <div class="col-10">
+                                    <ul>
+                                        <li>Over 99.9% uptime</li>
+                                        <li>Monitoring tools to provide alerts if there are issues so they are quickly resolved</li>
+                                        <li>Easily check the uptime stats of the server</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="servicesBox">
+                    <a href="#SpecialistServices">
+                        <h2>Specialist Services</h2>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-2 service">
+                                    <img src="~/images/MicrosoftExchangeOnline.png" alt="Microsoft Exchange Online" />
+                                </div>
+                                <div class="col-10">
+                                    <ul>
+                                        <li>Exchange online 50GB mailboxes</li>
+                                        <li>Your own VPS Server</li>
+                                        <li>Progressive Web Apps</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="alert alert-primary text-right" role="alert">
+                    Get notifications on server status and blog updates
+                    <label class="switch GetNotifications">
+                        <input type="checkbox" class="GetNotificationsButton">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="CloudHosting" class="container-fluid darkblue">
+    <div class="container sectionStrip">
+        <h2>Cloud Hosting</h2>
+        <h3>RWS Services offers a range of hosting solutions to suit the needs of your business</h3>
+        <h3>We offer the following:</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="hostingBox lightblue">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>
+                                    Basic Web Hosting
+                                </h4>
+                                <p>
+                                    For small businesses with an average amount of daily website traffic:
+                                    <ul>
+                                        <li>500MB of space</li>
+                                        <li>10GB of monthly data transfer</li>
+                                        <li>Up to 5 MySQL databases</li>
+                                        <li>Up to 10 email accounts with basic spam filtering, webmail and support for forwarding to another email account</li>
+                                    </ul>
+                                </p>
+                            </div>
+                            <div class="col-md-12 text-right">
+                                <p>
+                                    <a class="btn btn-light" href="mailto:robin.wilson@rwsservices.net?subject=Basic%20Web%20Hosting">
+                                        📧 Buy for £7 per month
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="hostingBox purple">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>
+                                    Exchange Online Email Hosting
+                                </h4>
+                                <p>
+                                    For businesses requiring more advanced email features and better spam protection:
+                                    <ul>
+                                        <li>50GB mailbox</li>
+                                        <li>Sync email between devices so sent items and contacts are always up to date</li>
+                                        <li>Share calendars with colleagues</li>
+                                        <li>Business class spam protection</li>
+                                    </ul>
+                                </p>
+                            </div>
+                            <div class="col-md-12 text-right">
+                                <p>
+                                    <a class="btn btn-light" href="mailto:robin.wilson@rwsservices.net?subject=Exchange%20Online%20Hosting">
+                                        📧 Buy for £6 per month
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="hostingBox yellow">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>
+                                    Advanced Web Hosting
+                                </h4>
+                                <p>
+                                    For businesses with busy sites or graphic intensive websites:
+                                    <ul>
+                                        <li>1GB of space</li>
+                                        <li>30GB of monthly data transfer</li>
+                                        <li>Up to 10 MySQL databases</li>
+                                        <li>Up to 20 email accounts with basic spam filtering, webmail and support for forwarding to another email account</li>
+                                    </ul>
+                                </p>
+                            </div>
+                            <div class="col-md-12 text-right">
+                                <p>
+                                    <a class="btn btn-light" href="mailto:robin.wilson@rwsservices.net?subject=Advanced%20Web%20Hosting">
+                                        📧 Buy for £10 per month
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="hostingBox lime">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>
+                                    Microsoft .NET Hosting
+                                </h4>
+                                <p>
+                                    For websites developed using Microsoft Visual Studio and .NET Core:
+                                    <ul>
+                                        <li>All the features of basic web hosting</li>
+                                        <li>Run a single .NET web application using the Kestrel web server</li>
+                                        <li>Up to 2 Microsoft SQL Server databases</li>
+                                    </ul>
+                                </p>
+                            </div>
+                            <div class="col-md-12 text-right">
+                                <p>
+                                    <a class="btn btn-light" href="mailto:robin.wilson@rwsservices.net?subject=Microsoft%20.NET%20Hosting">
+                                        📧 Buy for £12 per month
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="WebDesign" class="container-fluid black">
+    <div class="container sectionStrip">
+        <h2>Web Design</h2>
+        <h3>Websites designed to suit any business</h3>
+        <p>
+            RWS Services offers a range of web design packages are available where a standard business website can be built for £600, designed to look good on any device from large format displays to smartphones, perform quickly and be ranked well in search engine results.
+        </p>
+        <p>
+            All new websites are ranked highly on performance, accessibility, best practices and SEO in Google Chrome.
+        </p>
+        <p>
+            Below are examples of some of the work:
+        </p>
+        <div id="HostingCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+            <ol class="carousel-indicators">
+                <li data-target="#HostingCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#HostingCarousel" data-slide-to="1"></li>
+                <li data-target="#HostingCarousel" data-slide-to="2"></li>
+                <li data-target="#HostingCarousel" data-slide-to="3"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active">
+                    <a href="http://www.metrocentreautoworld.com/" target="_blank" rel="noopener">
+                        <img src="~/images/WebDesign-MetroCentreAutoWorld.png" alt="Metro Centre Auto World" class="img-fluid" />
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="http://www.imageworksne.co.uk/" target="_blank" rel="noopener">
+                        <img src="~/images/WebDesign-ImageWorksNE.png" alt="ImageWorksNE" class="img-fluid" />
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="http://www.rothburydrive.co.uk/" target="_blank" rel="noopener">
+                        <img src="~/images/WebDesign-RothburyDrive.png" alt="Rothbury Drive" class="img-fluid" />
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="http://www.andreas-louloudiadis.co.uk/" target="_blank" rel="noopener">
+                        <img src="~/images/WebDesign-AndreasLouloudiadis.png" alt="Andreas Louloudiadis" class="img-fluid" />
+                    </a>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#HostingCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#HostingCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <br />
+        <div class="alert alert-primary" role="alert">
+            *To check the performance of your website in Google Chrome press F12 then go to the Audit tab and press the <strong>Perform an audit...</strong> button and output similar to the following will be displayed:<br />
+            <img src="~/images/GoogleLighthouseAudit.png" alt="Google Lighthouse Audit" class="img-fluid" /><br />
+            If your ratings are below this and especially if any areas other than Progressive Web App are not green then your visitors will be more likely to be frustrated.
+        </div>
+        <div class="alert alert-success" role="alert">
+            Features you will get are:
+            <ul>
+                <li>Website that looks good no matter which device it is being viewed on</li>
+                <li>Navigation that remains visible as you scroll and adapts to the size of the screen</li>
+                <li>Fast loading of wep pages with images loaded as they are needed allowing the initial page to load much faster</li>
+                <li>Clicking on a phone number will call the number if viewing the site on a smartphone</li>
+                <li>Uses jQuery and Bootstrap 4 frameworks to ensure compatibility across a range of different web browsers</li>
+                <li>New websites are now built as .NET Core Razor Applications</li>
+                <li>Enables future support as a PWA app</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="Reliability" class="container-fluid gray">
+    <div class="container sectionStrip">
+        <h2>Reliability</h2>
+        <h3>Services designed to work hard and deliver to your customers</h3>
+        <p>
+            With over 99.9% uptime, the hosting service ensures your website is always available when your customers try to access it so you will not lose out on business due to having a website that is offline or not working properly.
+        </p>
+        <p>
+            RWS Services websites compliment the hosting by implementing modern features such as lazy loading of images so they are loaded as they are needed rather than having to wait longer for the website to open whilst all images are downloaded.<br />
+            Whilst internet access is faster than it used to be, smartphones are ever more popular with people often on slow unreliable mobile connections.
+        </p>
+        <h3>
+            Live uptime stats:
+        </h3>
+
+        <iframe src="https://status.rwsservices.net/" class="iframeUptime" allowfullscreen></iframe>
+    </div>
+</div>
+
+<div id="SpecialistServices" class="container-fluid lightblue">
+    <div class="container sectionStrip">
+        <h2>Specialist Services</h2>
+        <h3>A range of services to meet your needs</h3>
+        <p>
+            Every business is different so we can over a solution tailored to your needs
+        </p>
+        <p>
+            We offer custom website packages which can include features such as:
+            <ul>
+                <li>Email communications containing your company's logo and branding</li>
+                <li>Advanced e-Commerce facilities linked to systems such as Sage Pay or Barclays EPDQ where the whole basket and transaction process occurs on your website so the customer is not taken away to a 3rd party payment website</li>
+                <li>Customer marketing solutions where customers can opt-in to recieve marketing information with unsubscribe links making it easy if they change their mind</li>
+                <li>Customer login with ability to view past orders</li>
+                <li>Admin panel allowing more advanced customisation options for your website such as for managing sales</li>
+            </ul>
+        </p>
+        <h3>
+            Microsoft Exchange Online and Office 365
+        </h3>
+        <p>
+            We offer Mirosoft Office 365 services which can provide business class email features and also also optionaly include Office 365 software for your PCs and other devices.<br />
+            Exchange Online has the following features:
+            <ul>
+                <li>
+                    Each user gets 50 GB of mailbox storage and can send messages up to 150 MB in size
+                </li>
+                <li>
+                    Users can connect supported versions of Outlook to Exchange Online, so they can use the rich client application they already know
+                </li>
+                <li>
+                    For web-client access, Outlook on the web provides a premium browser-based experience that matches the look and feel of the full Outlook client
+                </li>
+                <li>
+                    The Focused Inbox makes it easy to track email that matters most. Your inbox includes two tabs: Focused, for email you need to act on right away, and Other, for everything else. You can switch the tabs at any time and always see email flowing into Other.
+                </li>
+                <li>
+                    Compare calendars to schedule meetings and access collaboration features, including shared calendars, groups, the global address list, external contacts, tasks, conference rooms, and delegation capabilities
+                </li>
+                <li>
+                    Every mailbox is protected with premier anti-malware and anti-spam protection via Exchange Online Protection
+                </li>
+                <li>
+                    Keep your inbox clean by automatically moving old messages to an In-Place Archive
+                </li>
+            </ul>
+            <a class="btn btn-light" href="https://products.office.com/en-gb/exchange/exchange-online" target="_blank" rel="noopener">
+                ℹ️ Find out more...
+            </a>
+        </p>
+        <br />
+        <br />
+        <br />
+        <br />
+    </div>
+</div>

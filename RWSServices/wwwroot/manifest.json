@@ -1,0 +1,29 @@
+{
+  "lang": "en",
+  "dir": "ltr",
+  "name": "RWS Services",
+  "description": "Cloud hosting and web design services for competitive prices",
+  "short_name": "RWS Services",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    }
+  ],
+  "scope": "/",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "natural",
+  "theme_color": "#094ab1",
+  "background_color": "#75d6ff",
+  "serviceworker": {
+    "src": "service-worker.js",
+    "scope": "/"
+  }
+}

@@ -1,0 +1,17 @@
+﻿@model IEnumerable<RWSServices.Models.EmojiCategory>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@foreach (var category in Model)
+{
+    <div class="EmojiCategory">
+        <h3>@Html.DisplayFor(modelItem => category.Category)</h3>
+
+        @foreach (var item in category.Emojis)
+        {
+            <button type="button" class="btn btn-outline-secondary btn-sm col-1 Emoji">@Html.DisplayFor(modelItem => item.EmojiCode)</button>
+        }
+    </div>
+}
