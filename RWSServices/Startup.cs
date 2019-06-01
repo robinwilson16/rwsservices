@@ -78,6 +78,17 @@ namespace RWSServices
                 app.UseHsts();
             }
 
+            //Avoid CORS errors with JS files served over CDN
+            app.UseCors(builder => builder.WithOrigins(
+                "http://www.rwsservices.net",
+                "https://www.rwsservices.net",
+                "http://rwsservices.net",
+                "https://rwsservices.net"
+                )
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+            );
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
