@@ -19,9 +19,9 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css" crossorigin="anonymous" />
     </environment>
 
+    <link href="//fonts.googleapis.com/css?family=Days+One" rel="stylesheet">
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/slider.css" />
-    <link href="//fonts.googleapis.com/css?family=Days+One" rel="stylesheet">
     <link rel="manifest" href="/manifest.json">
 </head>
 <body class="skyblue" data-spy="scroll" data-target="#TopNavBar" data-offset="50">
@@ -78,7 +78,7 @@
     <environment include="Development">
         <script src="~/lib/jquery/jquery.js"></script>
         <script src="~/lib/twitter-bootstrap/js/bootstrap.bundle.js" asp-append-version="true"></script>
-        <script src="~/lib/ckeditor5-build-classic/build/ckeditor.js"></script>
+        <script src="https://cdn.ckeditor.com/ckeditor5/12.4.0/classic/ckeditor.js"></script>
     </environment>
     <environment exclude="Development">
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
@@ -92,11 +92,7 @@
                 crossorigin="anonymous">
         </script>
 
-        <script src="//cdn.ckeditor.com/ckeditor5/12.4.0/classic/ckeditor.js"
-                asp-fallback-src="~/lib/ckeditor5-build-classic/build/ckeditor.js"
-                asp-fallback-test="ClassicEditor"
-                crossorigin="anonymous">
-        </script>
+        <script src="https://cdn.ckeditor.com/ckeditor5/12.4.0/classic/ckeditor.js"></script>
     </environment>
 
     <script src="~/js/site.js" asp-append-version="true"></script>

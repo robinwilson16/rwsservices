@@ -15,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using RWSServices.Models;
 using Microsoft.Extensions.FileProviders;
 using System.IO;
+using Microsoft.Extensions.Hosting;
 
 namespace RWSServices
 {
@@ -45,22 +46,20 @@ namespace RWSServices
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
-            //services.AddDefaultIdentity<IdentityUser>()
-            //    .AddEntityFrameworkStores<ApplicationDbContext>();
-
             services.AddIdentity<ApplicationUser, ApplicationRole>(
                 options => options.Stores.MaxLengthForKeys = 128)
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultUI()
                 .AddDefaultTokenProviders();
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddRazorPages();
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         //public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         public void Configure(IApplicationBuilder app,
-            IHostingEnvironment env,
+            IWebHostEnvironment env,
             ApplicationDbContext context,
             RoleManager<ApplicationRole> roleManager,
             UserManager<ApplicationUser> userManager,
@@ -91,16 +90,24 @@ namespace RWSServices
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseCookiePolicy();
-
+            app.UseRouting();
             app.UseAuthentication();
-
-            //app.UseMvc();
-            app.UseMvc(routes =>
+            app.UseAuthorization();
+            app.UseEndpoints(endpoints =>
             {
-                routes.MapRoute(
-                    name: "FileUpload",
-                    template: "{controller=FileUpload}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
+            });
+
+            //app.UseMvc(routes =>
+            //{
+            //    routes.MapRoute(
+            //        name: "FileUpload",
+            //        template: "{controller=FileUpload}/{action=Index}/{id?}");
+            //});
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute("FileUpload", "{controller=FileUpload}/{action=Index}/{id?}");
             });
 
             CreateUsers.Initialize(context, userManager, roleManager, configuration).Wait();// seed here
